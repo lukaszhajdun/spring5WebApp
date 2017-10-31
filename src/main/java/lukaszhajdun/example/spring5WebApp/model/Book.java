@@ -1,13 +1,21 @@
 package lukaszhajdun.example.spring5WebApp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by Kroolik on 2017-10-31.
  */
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String title;
     private String isbn;
     private String publisher;
@@ -60,5 +68,10 @@ public class Book {
         this.authors = authors;
     }
 
-
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
